@@ -14,10 +14,10 @@ public class SettingService {
     }
 
     /**
-     * @param id mongo_id
+     * @param sn mongo_sn
      * @return Setting
      */
-    public Mono<Setting> findOne(String id) {
-        return settingRepository.findById(id);
+    public Mono<Setting> findBySN(String sn) {
+        return settingRepository.findBySN(sn);
     }
 }

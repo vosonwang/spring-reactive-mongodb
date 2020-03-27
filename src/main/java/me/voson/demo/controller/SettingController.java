@@ -17,9 +17,9 @@ public class SettingController {
         this.settingService = settingService;
     }
 
-    @GetMapping("/setting/{id}")
-    public Mono<ResponseEntity<Setting>> findById(@PathVariable() String id) {
-        return settingService.findOne(id)
+    @GetMapping("/setting/{sn}")
+    public Mono<ResponseEntity<Setting>> findBySN(@PathVariable() String sn) {
+        return settingService.findBySN(sn)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.status(404).body(null));
     }
