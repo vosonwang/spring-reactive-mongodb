@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
+/**
+ * @author voson
+ */
 @Component
 public class SettingServiceImpl implements SettingService {
     final SettingRepository settingRepository;
@@ -19,6 +22,7 @@ public class SettingServiceImpl implements SettingService {
      * @param sn String
      * @return DeviceSetting
      */
+    @Override
     public Mono<DeviceSetting> findBySn(String sn) {
         return settingRepository.findBySn(sn);
     }

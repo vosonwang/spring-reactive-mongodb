@@ -8,6 +8,9 @@ import reactor.core.publisher.Mono;
 
 import java.util.Date;
 
+/**
+ * @author voson
+ */
 @Component
 public class OrganizationImpl implements OrganizationService {
     final OrganizationRepository organizationRepository;
@@ -17,15 +20,12 @@ public class OrganizationImpl implements OrganizationService {
         this.organizationRepository = organizationRepository;
     }
 
-    /**
-     * @param name String
-     * @return Organization
-     */
+    @Override
     public Mono<Organization> findByName(String name) {
         return organizationRepository.findByName(name);
     }
 
-
+    @Override
     public Mono<String> newOrganization(Organization organization) {
         Date now = new Date();
         organization.setCreateTime(now);

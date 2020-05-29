@@ -1,6 +1,7 @@
 package me.voson.demo;
 
 public class CommonResponse<T> {
+    public final String OK = "ok";
     private String code;
     private String message;
     private T data;
@@ -34,12 +35,12 @@ public class CommonResponse<T> {
     }
 
     public static <T> CommonResponse<T> fail(String code, String message) {
-        return new CommonResponse<>(code,message);
+        return new CommonResponse<>(code, message);
     }
 
     private CommonResponse(T data) {
-        this.code = "OK";
-        this.message = "OK";
+        this.code = OK;
+        this.message = OK;
         this.data = data;
     }
 

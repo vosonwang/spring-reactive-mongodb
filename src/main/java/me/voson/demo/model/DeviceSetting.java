@@ -5,7 +5,10 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
-// MongoDB会自动创建collection，默认为类名首字母小写，也就是user
+/**
+ * @author voson
+ * MongoDB会自动创建collection，默认为类名首字母小写，也就是user
+ */
 @Document(collection="device_setting")
 public class DeviceSetting {
     @Id

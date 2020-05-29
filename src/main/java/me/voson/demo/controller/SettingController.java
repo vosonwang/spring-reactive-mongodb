@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 
+/**
+ * @author voson
+ */
 @RestController
 public class SettingController {
     final SettingService settingService;
@@ -17,7 +20,7 @@ public class SettingController {
     }
 
     @GetMapping("/device/setting/{sn}")
-    public Mono<CommonResponse<DeviceSetting>> findBySN(@PathVariable() String sn) {
+    public Mono<CommonResponse<DeviceSetting>> getDeviceSetting(@PathVariable() String sn) {
         return settingService.findBySn(sn).map(CommonResponse::success)
                 .defaultIfEmpty(CommonResponse.success(null));
     }

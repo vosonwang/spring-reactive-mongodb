@@ -7,6 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.Date;
 
+/**
+ * @author voson
+ */
 @Document
 public class Organization {
     @Id
@@ -16,11 +19,11 @@ public class Organization {
 
     @JsonProperty("alarm_url")
     @Field("alarm_url")
-    private String alarmURL;
+    private String alarmUrl;
 
     @JsonProperty("device_data_url")
     @Field("device_data_url")
-    private String deviceDataURL;
+    private String deviceDataUrl;
 
     private String token;
 
@@ -48,20 +51,20 @@ public class Organization {
         this.name = name;
     }
 
-    public String getAlarmURL() {
-        return alarmURL;
+    public String getAlarmUrl() {
+        return alarmUrl;
     }
 
-    public void setAlarmURL(String alarmURL) {
-        this.alarmURL = alarmURL;
+    public void setAlarmUrl(String alarmUrl) {
+        this.alarmUrl = alarmUrl;
     }
 
-    public String getDeviceDataURL() {
-        return deviceDataURL;
+    public String getDeviceDataUrl() {
+        return deviceDataUrl;
     }
 
-    public void setDeviceDataURL(String deviceDataURL) {
-        this.deviceDataURL = deviceDataURL;
+    public void setDeviceDataUrl(String deviceDataUrl) {
+        this.deviceDataUrl = deviceDataUrl;
     }
 
     public String getToken() {
