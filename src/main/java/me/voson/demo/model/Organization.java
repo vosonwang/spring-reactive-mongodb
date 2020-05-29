@@ -1,5 +1,6 @@
 package me.voson.demo.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -13,17 +14,21 @@ public class Organization {
 
     private String name;
 
+    @JsonProperty("alarm_url")
     @Field("alarm_url")
     private String alarmURL;
 
+    @JsonProperty("device_data_url")
     @Field("device_data_url")
     private String deviceDataURL;
 
     private String token;
 
+    @JsonProperty("create_time")
     @Field("create_time")
     private Date createTime;
 
+    @JsonProperty("update_time")
     @Field("update_time")
     private Date updateTime;
 
