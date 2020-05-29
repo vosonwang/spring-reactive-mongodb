@@ -26,7 +26,7 @@ public class OrganizationImpl implements OrganizationService {
     }
 
     @Override
-    public Mono<String> newOrganization(Organization organization) {
+    public Mono<String> insert(Organization organization) {
         Date now = new Date();
         organization.setCreateTime(now);
         organization.setUpdateTime(now);

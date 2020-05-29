@@ -10,16 +10,18 @@ import reactor.core.publisher.Mono;
 @Service
 public interface OrganizationService {
     /**
-     * 根据组织名称查找组织
+     * Retrieves an entity by its name.
+     *
      * @param name String
      * @return an entity if with the given sn exists
      * */
     Mono<Organization> findByName(String name);
 
     /**
-     * 新建组织
+     * Inserts the given entity.
+     *
      * @param organization Organization
      * @return id
      */
-    Mono<String> newOrganization(Organization organization);
+    Mono<String> insert(Organization organization);
 }

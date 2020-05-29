@@ -11,7 +11,8 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface OrganizationRepository extends ReactiveMongoRepository<Organization, String> {
     /**
-     * 根据组织名称查找组织
+     * Retrieves an entity by its name.
+     *
      * @param name String
      * @return an entity if with the given sn exists
      * */

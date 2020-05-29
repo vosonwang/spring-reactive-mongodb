@@ -11,7 +11,8 @@ import reactor.core.publisher.Mono;
 @Repository
 public interface SettingRepository extends ReactiveMongoRepository<DeviceSetting, String> {
     /**
-     * 根据序列号查找设备配置
+     * Retrieves an entity by its sn.
+     *
      * @param sn String
      * @return an entity if with the given sn exists
      */

@@ -1,5 +1,8 @@
 package me.voson.demo;
 
+/**
+ * @author voson
+ */
 public class CommonResponse<T> {
     public final String OK = "ok";
     private String code;

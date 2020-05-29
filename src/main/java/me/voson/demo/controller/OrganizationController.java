@@ -24,7 +24,7 @@ public class OrganizationController {
 
     @PostMapping("/organization")
     public Mono<CommonResponse<String>> newOrganization(@RequestBody Organization organization) {
-        return organizationService.newOrganization(organization).map(CommonResponse::success).
+        return organizationService.insert(organization).map(CommonResponse::success).
                 onErrorResume(e -> Mono.just(CommonResponse.fail("NEW_RECORD_FAILED", e.getMessage())));
     }
 }
