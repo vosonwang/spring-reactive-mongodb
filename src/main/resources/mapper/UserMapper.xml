@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间和dao层的Mapper保持一致-->
+<mapper namespace="me.voson.demo.repository.UserMapper">
+    <resultMap id="User" type="me.voson.demo.model.User">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="email" column="email"/>
+        <result property="mobile" column="mobile"/>
+        <result property="hashPassword" column="hash_password"/>
+        <result property="organizationId" column="organization_id"/>
+        <result property="roleId" column="role_id"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+</mapper>

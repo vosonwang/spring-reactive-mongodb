@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 public class OrganizationDeviceController {
-    protected Logger logger = LoggerFactory.getLogger(OrganizationDeviceController.class);
+    protected final Logger logger = LoggerFactory.getLogger(OrganizationDeviceController.class);
 
     final OrganizationDeviceService organizationDeviceService;
 
@@ -28,9 +28,13 @@ public class OrganizationDeviceController {
         this.organizationDeviceService = organizationDeviceService;
     }
 
+    /**
+     * 查询指定序列号所属的组织列表
+     */
     @GetMapping("/device/organizations/{sn}")
     public Mono<CommonResponse<List<Organization>>> getDeviceSetting(@PathVariable() String sn) {
-        logger.info(sn);
+        // Alibaba：日志输出事，变量拼接推荐占位符
+        logger.info("用户查询了序列号 {} 所属的组织", sn);
         return organizationDeviceService.findOrganizationBySn(sn).collectList().map(CommonResponse::success);
     }
 }
