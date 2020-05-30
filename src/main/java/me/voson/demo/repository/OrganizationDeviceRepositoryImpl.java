@@ -9,8 +9,6 @@ import org.springframework.data.mongodb.core.aggregation.ObjectOperators;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 
-import java.util.List;
-
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.*;
 import static org.springframework.data.mongodb.core.query.Criteria.where;
 
@@ -28,12 +26,12 @@ public class OrganizationDeviceRepositoryImpl implements OrganizationDeviceRepos
     }
 
     @Override
-    public List<Organization> findOrganizationBySn(String sn) {
+    public Flux<Organization> findOrganizationBySn(String sn) {
         Aggregation aggregation = newAggregation(
                 match(where("sns").is(sn)),
                 lookup("organization", "organization_id", "_id", "result"),
                 replaceRoot(ObjectOperators.MergeObjects.merge("$result"))
         );
-        return mongoOperations.aggregate(aggregation, OrganizationDevice.class, Organization.class).getMappedResults();
+        return Flux.fromArray(mongoOperations.aggregate(aggregation, OrganizationDevice.class, Organization.class).getMappedResults().toArray(Organization[]::new));
     }
 }
