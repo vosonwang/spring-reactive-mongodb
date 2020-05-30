@@ -7,16 +7,17 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author voson
  */
 @Component
-public class OrganizationImpl implements OrganizationService {
+public class OrganizationServiceImpl implements OrganizationService {
     final OrganizationRepository organizationRepository;
 
     @Autowired
-    public OrganizationImpl(OrganizationRepository organizationRepository) {
+    public OrganizationServiceImpl(OrganizationRepository organizationRepository) {
         this.organizationRepository = organizationRepository;
     }
 

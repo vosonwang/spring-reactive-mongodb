@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
  * @author voson
  */
 @Repository
-public interface SettingRepository extends ReactiveMongoRepository<DeviceSetting, String> {
+public interface DeviceSettingRepository extends ReactiveMongoRepository<DeviceSetting, String> {
     /**
      * Retrieves an entity by its sn.
      *

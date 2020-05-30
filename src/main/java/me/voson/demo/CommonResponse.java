@@ -4,7 +4,7 @@ package me.voson.demo;
  * @author voson
  */
 public class CommonResponse<T> {
-    public final String OK = "ok";
+    public final String OK = "OK";
     private String code;
     private String message;
     private T data;

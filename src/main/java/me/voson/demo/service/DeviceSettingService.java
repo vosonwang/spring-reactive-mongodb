@@ -8,7 +8,7 @@ import reactor.core.publisher.Mono;
  * @author voson
  */
 @Service
-public interface SettingService {
+public interface DeviceSettingService {
     /**
      *  Retrieves an entity by its sn.
      *
