@@ -90,4 +90,17 @@ public class Organization {
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
     }
+
+    @Override
+    public String toString() {
+        return "Organization{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", alarmUrl='" + alarmUrl + '\'' +
+                ", deviceDataUrl='" + deviceDataUrl + '\'' +
+                ", token='" + token + '\'' +
+                ", createTime=" + createTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

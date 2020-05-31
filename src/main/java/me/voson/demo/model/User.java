@@ -2,6 +2,7 @@ package me.voson.demo.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import org.springframework.data.annotation.Id;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -10,7 +11,7 @@ import java.util.Date;
  * @author voson
  */
 public class User {
-
+    @Id
     private Long id;
 
     @JsonProperty("user_name")
@@ -111,7 +112,7 @@ public class User {
 
     @Override
     public String toString() {
-        return String.format("User{ name: %s,email: %s,mobile: %s,hash_password: %s,create_time: %s,update_time: %s }",
-                userName, email, mobile, Arrays.toString(hashPassword), createTime, updateTime);
+        return String.format("User{ name: %s,email: %s,mobile: %s,hash_password: %s,organization_id: %s,role_id: %s,create_time: %s,update_time: %s }",
+                userName, email, mobile, Arrays.toString(hashPassword), organizationId, roleId, createTime, updateTime);
     }
 }

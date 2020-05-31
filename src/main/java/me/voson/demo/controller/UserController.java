@@ -21,12 +21,11 @@ public class UserController {
 
     @GetMapping("/user")
     public Mono<CommonResponse<User>> getUser(@RequestParam("name") String name) {
-        return userService.findByName(name).map(CommonResponse::success).defaultIfEmpty(CommonResponse.success(null));
+        return userService.findByName(name).map(CommonResponse::success).defaultIfEmpty(CommonResponse.fail("NOT_FOUND","找不到用户"));
     }
 
     @PostMapping("/user")
     public Mono<CommonResponse<Long>> newUser(@RequestBody User user) {
-        return userService.insert(user).map(CommonResponse::success).
-                onErrorResume(e -> Mono.just(CommonResponse.fail("NEW_RECORD_FAILED", e.getMessage())));
+        return userService.insert(user).map(CommonResponse::success);
     }
 }
