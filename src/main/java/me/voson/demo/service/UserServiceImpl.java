@@ -3,6 +3,7 @@ package me.voson.demo.service;
 import me.voson.demo.model.User;
 import me.voson.demo.repository.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 
@@ -31,6 +32,13 @@ public class UserServiceImpl implements UserService {
         Date now = new Date();
         user.setCreateTime(now);
         user.setUpdateTime(now);
-        return Mono.just(userMapper.insert(user));
+        try {
+            // 似乎是因为webFlux不支持SQL数据库，所以捕获不到DuplicateKeyException这样的异常
+            return Mono.just(userMapper.insert(user));
+        } catch (DuplicateKeyException e) {
+            return Mono.error(e.getMostSpecificCause());
+        } finally {
+            System.out.println("unknown error");
+        }
     }
 }

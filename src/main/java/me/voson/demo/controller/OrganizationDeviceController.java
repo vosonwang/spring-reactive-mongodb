@@ -19,7 +19,7 @@ import java.util.List;
  */
 @RestController
 public class OrganizationDeviceController {
-    protected final Logger logger = LoggerFactory.getLogger(OrganizationDeviceController.class);
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 
     final OrganizationDeviceService organizationDeviceService;
 
