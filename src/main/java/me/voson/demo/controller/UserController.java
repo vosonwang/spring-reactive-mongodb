@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/user")
     public Mono<CommonResponse<User>> getUser(@RequestParam("name") String name) {
-        return userService.findByName(name).map(CommonResponse::success).defaultIfEmpty(CommonResponse.fail("NOT_FOUND","找不到用户"));
+        return userService.findByName(name).map(CommonResponse::success).defaultIfEmpty(CommonResponse.fail("UserNotFound","the user name not exist."));
     }
 
     @PostMapping("/user")

@@ -32,10 +32,11 @@ public class User {
     @JsonProperty("role_id")
     private long roleId;
 
-    @JsonProperty("create_time")
+    /** Alibaba 不需要对外传输 */
+    @JsonIgnore
     private Date createTime;
 
-    @JsonProperty("update_time")
+    @JsonIgnore
     private Date updateTime;
 
     public Long getId() {
